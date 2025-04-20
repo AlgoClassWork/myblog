@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <h2> {{post.title}} </h2>
+    <p> {{post.body}} </p>
+    <p> Автор: {{ post.author }} | Дата: {{post.created|date:"d.m.Y"}} </p>
+
+    <h3>Комментарии</h3>
+    {% for comment in comments%}
+        <div class="comment">
+            <p> {{comment.name}} : {{comment.body}} </p>
+        </div>
+    {% empty %}
+        <p>Комментариев пока нет</p>
+    {% endfor %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ comment_form }}
+        <button type="submit">Отправить</button>
+    </form>
+
+{% endblock %}

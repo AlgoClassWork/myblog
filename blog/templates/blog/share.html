@@ -1,12 +1,18 @@
+<!-- Страница для отправки поста по email -->
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2> Поделиться постом {{post.title}} </h2>
-
+    <h2>Поделиться постом "{{ post.title }}" 📧</h2>
     <form method="post">
         {% csrf_token %}
-        {{form}}
-        <button type="submit"> Отправить </button>
+        {{ form.as_p }} <!-- Поля формы -->
+        <button type="submit">Отправить</button>
     </form>
-    
+    <p>
+        {% if post.id in favorites %}
+            <a href="/post/{{ post.id }}/favorite/">Убрать из избранного ⭐</a>
+        {% else %}
+            <a href="/post/{{ post.id }}/favorite/">Добавить в избранное ⭐</a>
+        {% endif %}
+    </p>
 {% endblock %}

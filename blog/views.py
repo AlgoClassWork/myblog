@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.mail import send_mail
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, EmailForm
 
 def post_list(request):
     posts = Post.objects.all()
@@ -23,3 +24,18 @@ def post_detail(request, id):
                             'post':post,
                             'comments':comments,
                             'comment_form':comment_form})
+
+def post_share(request, id):
+    post = get_object_or_404(Post, id=id)
+    form = EmailForm()
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            post_url = request.build_absolute_url(f'/post/{post.id}')
+            subject = f'{data['name']} советует пост'
+            message = f'Прочитай пост {post.title} Ссылка {post_url} Сообщение {data['message']}'
+            send_mail(subject, message, 'ваш эмейл', [data['to']])
+            form = EmailForm()
+
+    return render(request, 'blog/share.html', {'post': post, 'form': form})

@@ -38,7 +38,7 @@ MIDDLEWARE = [
 ]
 
 # Главный файл маршрутов
-ROOT_URLCONF = 'simple_blog.urls'
+ROOT_URLCONF = 'mysite.urls'
 
 # Настройки шаблонов (где искать HTML-файлы)
 TEMPLATES = [
@@ -58,7 +58,7 @@ TEMPLATES = [
 ]
 
 # Для запуска сервера
-WSGI_APPLICATION = 'simple_blog.wsgi.application'
+WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # База данных (используем SQLite — простая база, файл на компьютере)
 DATABASES = {

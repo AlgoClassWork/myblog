@@ -1,76 +1,53 @@
+/* Простые стили для сайта */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    color: #333;
+    font-family: Arial, sans-serif; /* Шрифт */
+    margin: 20px; /* Отступы */
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    text-align: center;
+    text-align: center; /* Заголовок по центру */
+    margin-bottom: 20px;
 }
 
-header h1 a {
-    color: white;
-    text-decoration: none;
+h1 a {
+    text-decoration: none; /* Убираем подчёркивание ссылки */
+    color: #333; /* Тёмный цвет */
 }
 
-main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-radius: 5px;
+.post {
+    border-bottom: 1px solid #ccc; /* Линия между постами */
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-h2, h3 {
-    color: #444;
-}
-
-.post, .comment {
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
-}
-
-.post:last-child, .comment:last-child {
-    border-bottom: none;
+.comment {
+    background: #f9f9f9; /* Светлый фон для комментариев */
+    padding: 10px;
+    margin: 5px 0;
 }
 
 form {
-    margin-top: 2rem;
+    margin-top: 20px;
 }
 
-form input, form textarea, form button {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 1rem;
-}
-
-form button {
-    background-color: #4CAF50;
+button {
+    background: #28a745; /* Зелёная кнопка */
     color: white;
+    padding: 10px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-form button:hover {
-    background-color: #45a049;
+button:hover {
+    background: #218838; /* Темнее при наведении */
 }
 
-a {
-    color: #1a0dab;
+.like-link, .favorite-link {
+    color: #007bff; /* Синий цвет для ссылок */
     text-decoration: none;
+    margin-left: 10px;
 }
 
-a:hover {
-    text-decoration: underline;
+.like-link:hover, .favorite-link:hover {
+    text-decoration: underline; /* Подчёркивание при наведении */
 }

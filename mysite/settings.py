@@ -94,7 +94,6 @@ USE_TZ = True
 
 # Где лежат CSS и картинки
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Какой тип первичного ключа использовать
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

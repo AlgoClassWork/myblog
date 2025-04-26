@@ -32,10 +32,10 @@ def post_share(request, id):
         form = EmailForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            post_url = request.build_absolute_url(f'/post/{post.id}')
+            post_url = request.build_absolute_uri(f'/post/{post.id}')
             subject = f'{data['name']} советует пост'
             message = f'Прочитай пост {post.title} Ссылка {post_url} Сообщение {data['message']}'
-            send_mail(subject, message, 'ваш эмейл', [data['to']])
+            send_mail(subject, message, 'admin@gmail.com', [data['to']])
             form = EmailForm()
 
     return render(request, 'blog/share.html', {'post': post, 'form': form})

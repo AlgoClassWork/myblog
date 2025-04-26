@@ -6,7 +6,7 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['name','body']
 
-class EmailForm(forms.ModelForm):
+class EmailForm(forms.Form):
     name = forms.CharField(max_length=20)
     to = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea, required=False)

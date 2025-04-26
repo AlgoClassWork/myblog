@@ -1,21 +1,20 @@
 {% load static %}
 
+<!-- Основа всех страниц сайта -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Мой блог</title>
+    <title>Мой Блог 📝</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
 </head>
 <body>
     <header>
-        <h1> <a href="/"> Мой блог </a> </h1>
+        <h1><a href="/">Мой Блог 😎</a></h1> <!-- Заголовок и ссылка на главную -->
     </header>
     <main>
         {% block content %}
-        
+        <!-- Здесь будут разные страницы -->
         {% endblock %}
     </main>
-    
 </body>
 </html>
